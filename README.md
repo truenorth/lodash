@@ -1,4 +1,4 @@
-# lodash v3.0.2
+# lodash v3.0.3
 
 The [modern build](https://github.com/lodash/lodash/wiki/Build-Differences) of [lodash](https://lodash.com/) exported as [npm packages](https://www.npmjs.com/browse/keyword/lodash-modularized) per method.
 
