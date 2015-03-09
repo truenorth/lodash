@@ -1,5 +1,5 @@
 /**
- * lodash 3.3.1 (Custom Build) <https://lodash.com/>
+ * lodash 3.4.0 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
@@ -10,6 +10,7 @@ var baseCallback = require('lodash._basecallback'),
     baseEach = require('lodash._baseeach'),
     isIterateeCall = require('lodash._isiterateecall'),
     toIterable = require('lodash._toiterable'),
+    isArray = require('lodash.isarray'),
     lt = require('lodash.lt');
 
 /** Used as references for `-Infinity` and `Infinity`. */
@@ -81,11 +82,11 @@ function baseExtremum(collection, iteratee, comparator, exValue) {
 function createExtremum(comparator, exValue) {
   return function(collection, iteratee, thisArg) {
     if (thisArg && isIterateeCall(collection, iteratee, thisArg)) {
-      iteratee = null;
+      iteratee = undefined;
     }
     iteratee = baseCallback(iteratee, thisArg, 3);
     if (iteratee.length == 1) {
-      collection = toIterable(collection);
+      collection = isArray(collection) ? collection : toIterable(collection);
       var result = arrayExtremum(collection, iteratee, comparator, exValue);
       if (!(collection.length && result === exValue)) {
         return result;
