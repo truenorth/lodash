@@ -1,21 +1,19 @@
 /**
- * lodash 3.1.0 (Custom Build) <https://lodash.com/>
+ * lodash 3.2.0 (Custom Build) <https://lodash.com/>
  * Build: `lodash modern modularize exports="npm" -o ./`
  * Copyright 2012-2015 The Dojo Foundation <http://dojofoundation.org/>
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  * Available under MIT license <https://lodash.com/license>
  */
-var getNative = require('lodash._getnative');
 
 /* Native method references for those with the same name as other `lodash` methods. */
-var nativeIsFinite = global.isFinite,
-    nativeNumIsFinite = getNative(Number, 'isFinite');
+var nativeIsFinite = global.isFinite;
 
 /**
  * Checks if `value` is a finite primitive number.
  *
- * **Note:** This method is based on [`Number.isFinite`](https://people.mozilla.org/~jorendorff/es6-draft.html#sec-number.isfinite).
+ * **Note:** This method is based on [`Number.isFinite`](http://ecma-international.org/ecma-262/6.0/#sec-number.isfinite).
  *
  * @static
  * @memberOf _
@@ -39,8 +37,8 @@ var nativeIsFinite = global.isFinite,
  * _.isFinite(Infinity);
  * // => false
  */
-var isFinite = nativeNumIsFinite || function(value) {
+function isFinite(value) {
   return typeof value == 'number' && nativeIsFinite(value);
-};
+}
 
 module.exports = isFinite;
